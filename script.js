@@ -1,5 +1,31 @@
-
-
+let playlist = [];
+function addSong (){
+    let title = document.getElementById("songTitle").value;
+    let artist = document.getElementById("artist").value;
+    let duration = document.getElementById("duration").value;
+    let Song = {
+        songTitle: title,
+        songArtist: artist,
+        songDuration: duration
+    }
+    if(title==''){
+        alert("must fill in the box");
+        return;
+    }
+    if(artist==''){
+        alert("must fill in the box");
+        return;
+    }
+    if(duration==''){
+        alert("must fill in the box")
+        return;
+    }
+    playlist.push(Song);
+    displayPlaylist();
+    document.getElementById('songTitle').value = '';
+    document.getElementById('artist').value = '';
+    document.getElementById('duration').value = '';
+}
 
 
 
@@ -14,7 +40,6 @@
 //This function updates the HTML with whatever's in the playlist array
 function displayPlaylist() {
     let playlistDiv = document.getElementById('playlist');
-    
     playlistDiv.innerHTML = '';
     
     playlist.forEach((song, index) => {
@@ -33,3 +58,4 @@ function displayPlaylist() {
         playlistDiv.appendChild(songCard);
     });
 }
+
